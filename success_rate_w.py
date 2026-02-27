@@ -8,8 +8,8 @@ import japanize_matplotlib
 
 ### 障害物距離読み込み ###
 # csvファイル読み込み
-# df = pd.read_csv("/home/koki/ROBOMECH2026/data/obst_dist_left_and_right.csv", header=None) #左右方向の障害物
-df = pd.read_csv("/home/koki/ROBOMECH2026/data/obst_dist_back_and_top.csv", header=None) # 前後方向の障害物
+df = pd.read_csv("/home/koki/ROBOMECH2026/data/obst_dist_left_and_right.csv", header=None) #左右方向の障害物
+# df = pd.read_csv("/home/koki/ROBOMECH2026/data/obst_dist_back_and_top.csv", header=None) # 前後方向の障害物
 
 # 1,2列目のデータを取得して数値に変換
 data_left = df[0].astype(float)
@@ -17,7 +17,7 @@ data_right = df[1].astype(float)
 
 ### 認識誤差 ###
 mu=0
-sigma=2 #誤差±2mm
+sigma=5 #誤差±2mm
 
 plt.title(f"誤差±{sigma}[mm]のときの最適な開口部のサイズ")
 plt.xlabel("開口部のサイズ[mm]") # x軸のラベル
