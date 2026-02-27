@@ -7,7 +7,7 @@ import japanize_matplotlib
 
 
 ### 障害物距離読み込み ###
-# csvファイル読み込み
+# csvファイル読み込み　(左右障害物と前後障害物はコメントアウトで切り替え)
 df = pd.read_csv("/home/koki/ROBOMECH2026/data/obst_dist_left_and_right.csv", header=None) #左右方向の障害物
 # df = pd.read_csv("/home/koki/ROBOMECH2026/data/obst_dist_back_and_top.csv", header=None) # 前後方向の障害物
 
