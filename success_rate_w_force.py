@@ -22,14 +22,18 @@ sigma=5 #誤差 ±xmm
 
 # plt.title(f"誤差±{sigma}[mm]のときの最適な開口部のサイズ")
 
+plt.title(f"Optimal opening size (σ = {sigma})", fontsize=18)
+plt.xlabel("Opening size", fontsize=14) # x軸のラベル
+plt.ylabel("Success rate", fontsize=14) # y軸のラベル
+
 graph_success_rate=[]
 graph_w=[]
 
 ### 確率計算 ###
-for w in range (5,30,1):
-  # w = 13 # 開口部のサイズ
+for _ in range (5,6,1):
+  w = 7 + 4 # 開口部のサイズ 果柄径の最大値+4mm
   ee_out_side = 0 # エンドエフェクタの厚み
-  delta_z = -4 # 
+  delta_z = +50 # 開口部25mmに対し，実効許容誤差 約76mm
   # w_left = w/2 - 2
   w_left = (w + delta_z) / 2
   # w_right = w/2 - 2
@@ -49,7 +53,7 @@ for w in range (5,30,1):
     area_cdf = norm.cdf(b, loc=mu, scale=sigma) - norm.cdf(a, loc=mu, scale=sigma)
     success_rate = max(area_cdf, 0)
     total += success_rate
-    # print(f"No.{i} 区間 [{a}, {b}] の確率: {success_rate:.4f}, 左右障害物間距離{obst_dist_left + obst_dist_right}") # 各個体の成功率
+    print(f"No.{i} 区間 [{a}, {b}] の確率: {success_rate:.4f}, 左右障害物間距離{obst_dist_left + obst_dist_right}") # 各個体の成功率
   success_rate_average = total / len(data_left)
   graph_w.append(w)
   graph_success_rate.append(success_rate_average)
@@ -58,14 +62,7 @@ for w in range (5,30,1):
 plt.plot(graph_w, graph_success_rate)
 plt.ylim([0.0,0.45])
 
-# plt.title(f"Optimal opening size (σ = {sigma})", fontsize=18)
-plt.xlabel("Opening size", fontsize=18) # x軸のラベル
-plt.ylabel("Success rate", fontsize=18) # y軸のラベル
-
-plt.xticks(fontsize=18)
-plt.yticks(fontsize=18)
 
 plt.legend()
-plt.tight_layout()
 plt.show()
 

@@ -14,7 +14,7 @@ df_smpl=pd.DataFrame() #DataFrameに複数サンプルデータを格納する
 ### 障害物距離の分布 ###
 # csvファイル読み込み 
 label_obst="obst_dist"
-df = pd.read_csv("/home/koki/ROBOMECH2026/data/obst_dist_ver2.csv", header=None)
+df = pd.read_csv("/home/koki/ROBOMECH2026/data/obst_dist_left_and_right.csv", header=None)
 
 # 1列目のデータを取得して数値に変換
 data = df[0].astype(float)

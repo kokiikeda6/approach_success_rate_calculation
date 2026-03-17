@@ -29,7 +29,7 @@ graph_s=[]
 for s in range (5,30,1):
   # s = 13 # 側面のサイズ
   total = 0
-  peduncle_size = 5
+  peduncle_size = 5.5
   s_left = (s - peduncle_size)/2
   s_right = (s - peduncle_size)/2
 
